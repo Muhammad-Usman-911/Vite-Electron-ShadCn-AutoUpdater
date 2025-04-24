@@ -3,34 +3,48 @@ import UpdateElectron from '@/components/update'
 import logoVite from './assets/logo-vite.svg'
 import logoElectron from './assets/logo-electron.svg'
 import './App.css'
+import { ThemeProvider } from "./components/theme-provider"
+import { useTheme } from "./components/theme-provider"
+import { Button } from "./components/ui/button"
+import { Card } from "./components/ui/card"
+import { Moon, Sun } from "lucide-react"
+import "./App.css"
+
+function ThemeToggle() {
+  const { theme, setTheme } = useTheme()
+
+  return (
+    <Button
+      variant="outline"
+      size="icon"
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="fixed top-4 right-4"
+    >
+      {theme === "dark" ? (
+        <Sun className="h-[1.2rem] w-[1.2rem]" />
+      ) : (
+        <Moon className="h-[1.2rem] w-[1.2rem]" />
+      )}
+    </Button>
+  )
+}
 
 function App() {
-  const [count, setCount] = useState(0)
   return (
-    <div className='App'>
-      <div className='logo-box'>
-        <a href='https://github.com/electron-vite/electron-vite-react' target='_blank'>
-          <img src={logoVite} className='logo vite' alt='Electron + Vite logo' />
-          <img src={logoElectron} className='logo electron' alt='Electron + Vite logo' />
-        </a>
+    <div className="min-h-screen bg-background text-foreground">
+      <ThemeToggle />
+      <div className="container mx-auto px-4 py-8">
+        <Card className="p-6">
+          <h1 className="text-4xl font-bold mb-4">Welcome to Electron + Vite + React</h1>
+          <p className="text-lg text-muted-foreground mb-6">
+            This is a starter template with shadcn/ui components and dark mode support.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <Button variant="default">Get Started</Button>
+            <Button variant="outline">Learn More</Button>
+          </div>
+        </Card>
       </div>
-      <h1>Electron + Vite + React</h1>
-      <div className='card'>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className='read-the-docs'>
-        Click on the Electron + Vite logo to learn more
-      </p>
-      <div className='flex-center'>
-        Place static files into the<code>/public</code> folder <img style={{ width: '5em' }} src='./node.svg' alt='Node logo' />
-      </div>
-
-      <UpdateElectron />
     </div>
   )
 }
