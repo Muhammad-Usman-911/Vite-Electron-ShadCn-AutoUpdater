@@ -1,14 +1,11 @@
 import { useState } from 'react'
-import UpdateElectron from '@/components/update'
-import logoVite from './assets/logo-vite.svg'
-import logoElectron from './assets/logo-electron.svg'
 import './App.css'
-import { ThemeProvider } from "./components/theme-provider"
 import { useTheme } from "./components/theme-provider"
 import { Button } from "./components/ui/button"
 import { Card } from "./components/ui/card"
 import { Moon, Sun } from "lucide-react"
 import "./App.css"
+import { UpdateDialog } from './components/UpdateDialog'
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -30,6 +27,20 @@ function ThemeToggle() {
 }
 
 function App() {
+  const [updateAvailable, setUpdateAvailable] = useState(false)
+  const [downloadProgress, setDownloadProgress] = useState(0)
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [isReadyToInstall, setIsReadyToInstall] = useState(false)
+
+  const handleStartDownload = () => {
+    setIsDownloading(true)
+    // Your existing download logic here
+  }
+
+  const handleInstall = () => {
+    // Your existing install logic here
+  }
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <ThemeToggle />
@@ -45,6 +56,8 @@ function App() {
           </div>
         </Card>
       </div>
+      
+      <UpdateDialog />
     </div>
   )
 }

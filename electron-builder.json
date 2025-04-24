@@ -33,9 +33,10 @@
     "allowToChangeInstallationDirectory": true,
     "deleteAppDataOnUninstall": false
   },
-  "publish": {
-    "provider": "generic",
-    "channel": "latest",
-    "url": "https://github.com/Muhammad-Usman-911/Vite-Electron-ShadCn-AutoUpdater/releases/latest/download/"
-  }
+ "publish": {
+      "provider": "github",
+      "owner": "Muhammad-Usman-911",
+      "repo": "Vite-Electron-ShadCn-AutoUpdater",
+      "releaseType": "release"
+    }
 }
