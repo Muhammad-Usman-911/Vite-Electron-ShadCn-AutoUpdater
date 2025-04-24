@@ -1,7 +1,4 @@
 
-
-
-          
 # Vite-Electron-ShadCn-AutoUpdater
 
 ![GitHub license](https://img.shields.io/github/license/Muhammad-Usman-911/Vite-Electron-ShadCn-AutoUpdater)
@@ -11,88 +8,52 @@
 ![ShadCn/UI](https://img.shields.io/badge/ShadCn/UI-Latest-black)
 
 A modern Electron application template built with Vite, React, TypeScript, and ShadCn/UI components, featuring an integrated auto-update system.
-![alt text](image.png)
+
+![App Demo](./appDemo.gif) <!-- If you convert the video to a gif -->
+
 
 ## ✨ Features
 
-- 🔋 **Electron** - Cross-platform desktop application framework
-- ⚡️ **Vite** - Next generation frontend tooling
-- ⚛️ **React** - JavaScript library for building user interfaces
-- 🎨 **ShadCn/UI** - Beautiful, accessible UI components
-- 🔄 **Auto-Update** - Seamless application updates via GitHub releases
-- 🌙 **Dark Mode** - Built-in dark mode support
-- 📦 **TypeScript** - Type safety for your application
-- 🧩 **Component-based** - Modular architecture for easy maintenance
+- **Electron 33+**: Latest Electron framework for desktop applications
+- **Vite 5**: Fast development and build tooling
+- **React 18**: Modern React with hooks and concurrent features
+- **TypeScript**: Type-safe code for better developer experience
+- **ShadCn/UI**: Beautiful, accessible UI components
+- **Auto-Update System**: Built-in update mechanism using GitHub releases
+- **Dark Mode**: Fully implemented dark/light theme support
+- **Responsive Design**: Works on various screen sizes
+- **Electron Builder**: Configured for easy distribution
 
 ## 🚀 Quick Start
 
 ```bash
 # Clone the repository
-git clone https://github.com/Muhammad-Usman-911/Vite-Electron-ShadCn-AutoUpdater.git
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 
 # Navigate to the project directory
-cd Vite-Electron-ShadCn-AutoUpdater
+cd YOUR_REPO_NAME
 
 # Install dependencies
 npm install
 
-# Start development server
+# Start the development server
 npm run dev
 ```
 
-## 📂 Project Structure
-
-```
-├── electron                                 # Electron-related code
-│   ├── main                                 # Main-process source code
-│   │   ├── index.ts                         # Main entry point
-│   │   └── update.ts                        # Auto-update functionality
-│   └── preload                              # Preload-scripts source code
-│
-├── release                                  # Generated after production build
-│   └── {version}                            # Version-specific builds
-│       ├── {os}-{os_arch}                   # OS-specific unpacked application
-│       └── {app_name}_{version}.{ext}       # Installer for the application
-│
-├── public                                   # Static assets
-└── src                                      # Renderer source code (React application)
-    ├── components                           # UI components
-    │   ├── ui                               # ShadCn UI components
-    │   └── update                           # Update dialog component
-    ├── styles                               # Global styles
-    └── type                                 # TypeScript type definitions
-```
-
-## 🛠️ Build
+## 📦 Building for Production
 
 ```bash
 # Build the application
 npm run build
 ```
 
-This will create a packaged application in the `release/{version}` directory.
+The packaged application will be available in the `release/{version}` directory.
 
 ## 🔄 Auto-Update System
 
 This template includes a complete auto-update system that allows your application to check for, download, and install updates automatically. The system uses GitHub releases as the update source.
 
-### How Auto-Update Works
-
-1. The application checks for updates using the `electron-updater` package
-2. If an update is available, users are notified with an update dialog
-3. Users can choose to download and install the update
-4. The application will restart automatically after the update is installed
-
-### Update Dialog
-
-The update dialog provides a user-friendly interface for the update process:
-
-- Shows the current and new version numbers
-- Displays download progress with a progress bar
-- Provides clear error messages if something goes wrong
-- Allows users to install the update with a single click
-
-### Setting Up Auto-Update for Your Repository
+### Setting Up Auto-Update
 
 To configure the auto-update system for your own repository, modify the `publish` section in the `electron-builder.json` file:
 
@@ -105,10 +66,6 @@ To configure the auto-update system for your own repository, modify the `publish
 }
 ```
 
-Replace:
-- `YOUR_GITHUB_USERNAME` with your GitHub username
-- `YOUR_REPOSITORY_NAME` with your repository name
-
 ### Creating GitHub Releases
 
 To publish updates:
@@ -119,14 +76,25 @@ To publish updates:
 4. Upload the generated installer files from the `release/{version}` directory
 5. Publish the release
 
-Your users will then be able to download and install the update automatically.
+## 🧪 Testing
+
+```bash
+# Run tests
+npm run test
+```
+
+## 🔧 Configuration Files
+
+- **electron-builder.json**: Configuration for building and packaging
+- **vite.config.ts**: Vite build configuration
+- **tailwind.config.js**: Tailwind CSS configuration
+- **components.json**: ShadCn/UI components configuration
 
 ## 🧩 Key Components
 
 ### Update Dialog
 
-The update dialog component (`src/components/update/UpdateDialog.tsx`) provides a user interface for the auto-update process. It shows:
-
+The update dialog (`src/components/update/UpdateDialog.tsx`) provides a user interface for the auto-update process. It shows:
 - Update availability
 - Download progress
 - Installation button
@@ -134,37 +102,11 @@ The update dialog component (`src/components/update/UpdateDialog.tsx`) provides 
 
 ### Main Process Update Handler
 
-The update handler (`electron/main/update.ts`) manages the auto-update process in the main Electron process:
-
-- Checks for updates
-- Downloads updates
-- Installs updates
-- Communicates with the renderer process
-
-## 🔧 Configuration
-
-### electron-builder.json
-
-This file contains the configuration for building and packaging your Electron application, including:
-
-- Application ID
-- Output directory
-- Build targets (Windows, macOS)
-- NSIS installer options
-- Auto-update configuration
-
-### vite.config.ts
-
-This file configures the Vite build process for both the renderer and main processes.
-
-## 🧪 Testing
-
-The project includes Playwright for end-to-end testing:
-
-```bash
-# Run tests
-npm run test
-```
+The main process update handler (`electron/main/update.ts`) manages:
+- Checking for updates
+- Downloading updates
+- Installing updates
+- Communicating with the renderer process
 
 ## 📝 License
 
@@ -181,3 +123,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 Created by [Muhammad Usman](https://github.com/Muhammad-Usman-911)
+
+  
