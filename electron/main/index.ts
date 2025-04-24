@@ -76,7 +76,7 @@ async function createWindow() {
     if (url.startsWith('https:')) shell.openExternal(url)
     return { action: 'deny' }
   })
-
+  win.maximize();
   // Auto update
   update(win)
 }
