@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog"
 import { Button } from "../ui/button"
 import { Progress } from "../ui/progress"
-import { Download, CheckCircle, AlertCircle, X } from "lucide-react"
+import { Download, CheckCircle, AlertCircle, X, Stars } from "lucide-react"
 import type { ProgressInfo } from 'electron-updater'
 
 interface VersionInfo {
@@ -93,7 +93,8 @@ export function UpdateDialog() {
   return (
     <>
       <Button disabled={checking} onClick={checkUpdate} variant="outline" size="sm">
-        {checking ? 'Checking...' : 'Check for Updates'}
+        {checking ? 'Checking...' : 'Check for Updates '}
+        <Stars className="ml-2 text-yellow-600 dark:text-yellow-400 " width={15} height={15}/>
       </Button>
       
       <Dialog open={open} onOpenChange={setOpen}>

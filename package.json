@@ -21,13 +21,17 @@
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.11",
+    "@radix-ui/react-navigation-menu": "^1.2.10",
     "@radix-ui/react-progress": "^1.1.4",
     "@radix-ui/react-slot": "^1.2.0",
+    "@radix-ui/react-tabs": "^1.1.9",
+    "@radix-ui/react-tooltip": "^1.2.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "electron-updater": "^6.3.9",
     "electron-vite-react": "file:",
     "lucide-react": "^0.503.0",
+    "react-router-dom": "^7.5.2",
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7"
   },
