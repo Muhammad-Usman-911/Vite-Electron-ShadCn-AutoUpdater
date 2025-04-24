@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog"
-import { Button } from "./ui/button"
-import { Progress } from "./ui/progress"
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "../ui/dialog"
+import { Button } from "../ui/button"
+import { Progress } from "../ui/progress"
 import { Download, CheckCircle, AlertCircle, X } from "lucide-react"
 import type { ProgressInfo } from 'electron-updater'
 

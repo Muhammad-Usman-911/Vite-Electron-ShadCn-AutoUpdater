@@ -5,7 +5,7 @@ import { Button } from "./components/ui/button"
 import { Card } from "./components/ui/card"
 import { Moon, Sun } from "lucide-react"
 import "./App.css"
-import { UpdateDialog } from './components/UpdateDialog'
+import { UpdateDialog } from './components/update/UpdateDialog'
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme()
