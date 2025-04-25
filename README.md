@@ -108,6 +108,30 @@ The main process update handler (`electron/main/update.ts`) manages:
 - Installing updates
 - Communicating with the renderer process
 
+# Electron Preload Script
+
+The preload script in this Electron application serves as a secure bridge between the renderer process (React frontend) and the main process (Electron backend). It uses Electron's contextBridge API to safely expose IPC (Inter-Process Communication) functionality to the frontend without compromising security.
+
+## How it's set up
+
+The preload script exposes a carefully selected set of `ipcRenderer` methods through the context bridge:
+- `on`: Listens for events from the main process
+- `off`: Removes event listeners
+- `send`: Sends one-way messages to the main process
+- `invoke`: Makes request-response style calls to the main process
+
+Additionally, the preload script implements a loading animation that displays during application startup and automatically removes itself once the application is ready.
+
+## Adding new IPC features
+
+One of the advantages of this implementation is that **you don't need to modify the preload script** when adding new IPC functionality. The preload script is designed with a generic pattern that exposes the core IPC methods that can work with any channel name.
+
+To add a new IPC feature:
+1. Define a new handler in the main process using `ipcMain.handle()` or `ipcMain.on()`
+2. Call it from the renderer process using the already exposed `window.ipcRenderer.invoke()` or `window.ipcRenderer.send()`
+
+This approach maintains the security benefits of context isolation while providing flexibility for expanding the application's functionality.
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
